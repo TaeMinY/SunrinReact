@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import BusinessContentItem from "./components/BusinessContentItem";
 import Input from "./components/Input";
 
 const AppContainer = styled.div`
@@ -8,6 +9,46 @@ const AppContainer = styled.div`
   & > div {
     margin-bottom: 10px;
   }
+`;
+
+const BusinessCard = styled.div`
+  margin-top: 40px;
+
+  width: 382px;
+  height: 212px;
+
+  padding: 50px;
+
+  background-color: #ffffff;
+  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.1);
+`;
+
+const BusinessCardUsername = styled.div`
+  color: #000000;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  text-align: center;
+`;
+
+const BusinessCardIntroText = styled.div`
+  color: #000000;
+
+  font-size: 10px;
+  text-align: center;
+`;
+
+const BusinessContentContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 8px;
+  column-gap: 8px;
+
+  margin-top: 20px;
 `;
 
 function App() {
@@ -62,17 +103,22 @@ function App() {
         }}
         placeholder="깃헙"
       ></Input>
-      이름: {username} <br />
-      소개 : {introtext}
-      <br />
-      전화번호 : {phoneNumber}
-      <br />
-      인스타: {insta}
-      <br />
-      이메일 : {email}
-      <br />
-      깃헙 : {github}
-      <br />
+      <BusinessCard>
+        <BusinessCardUsername>{username}</BusinessCardUsername>
+        <BusinessCardIntroText>{introtext}</BusinessCardIntroText>
+        <BusinessContentContainer>
+          <BusinessContentItem
+            type="Tel"
+            text={phoneNumber}
+          ></BusinessContentItem>
+          <BusinessContentItem type="Insta" text={insta}></BusinessContentItem>
+          <BusinessContentItem type="Email" text={email}></BusinessContentItem>
+          <BusinessContentItem
+            type="Github"
+            text={github}
+          ></BusinessContentItem>
+        </BusinessContentContainer>
+      </BusinessCard>
     </AppContainer>
   );
 }
