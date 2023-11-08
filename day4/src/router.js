@@ -6,10 +6,6 @@ import Info from "./pages/Info";
 import NotFound from "./pages/NotFound";
 import UserPost from "./pages/UserPost";
 
-// localhost:3000/ -> App.js
-// localhost:3000/home
-// localhost:3000/about
-
 const router = createBrowserRouter([
   {
     path: "/",
