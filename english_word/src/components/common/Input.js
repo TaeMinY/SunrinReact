@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const InputContainer = styled.div`
   width: 100%;
@@ -9,6 +9,7 @@ const InputContainer = styled.div`
   padding: 12px 14px;
 
   ${(props) => props.$customStyle}
+  ${(props) => props.$inputStyle}
 `;
 
 const InputText = styled.input`
@@ -22,6 +23,18 @@ const InputText = styled.input`
 
   ${(props) => props.$innerStyle}
 `;
+const getInputStyle = (type) => {
+  if (type === "bottom-line") {
+    return css`
+      border: 0px;
+      border-bottom: 1px solid #eaeaea;
+      border-radius: 0px;
+      padding: 7px 5px;
+    `;
+  } else {
+    css``;
+  }
+};
 
 function Input({
   type = "text",
@@ -32,7 +45,7 @@ function Input({
   innerStyle,
 }) {
   return (
-    <InputContainer $customStyle={style}>
+    <InputContainer $customStyle={style} $inputStyle={getInputStyle(type)}>
       <InputText
         $innerStyle={innerStyle}
         type={type}
