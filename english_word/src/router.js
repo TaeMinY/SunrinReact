@@ -7,6 +7,15 @@ import SignUp from "./pages/SignUp";
 import TodayWord from "./pages/TodayWord";
 import Voca from "./pages/Voca";
 
+//  /
+//  /voca
+//  /more
+//  /signin
+//  /signup
+
+//  /signin-> App
+//  /voca
+
 const router = createBrowserRouter([
   {
     path: "/",
